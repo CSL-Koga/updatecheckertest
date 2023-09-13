@@ -1,5 +1,7 @@
 import random
 import matplotlib.pyplot as plt
+import requests
+from bs4 import BeautifulSoup
 
 def program():
     fig, ax = plt.subplots(num='Menscheitsende Simulation')
@@ -53,11 +55,44 @@ def program():
     plt.subplots_adjust(bottom=0.27)
     plt.show()
 
+def update_version_file(version):
+        with open("Python/WhenIsTheEnd/version.txt", "w") as file:
+            file.write(str(version))
+            file.close()
+
 def updateCheck():
+    # sourcery skip: merge-else-if-into-elif, swap-if-else-branches
+    url_of_version_file = "https://raw.githubusercontent.com/CSL-Koga/updatecheckertest/main/version.txt"
+    url_of_code = "https://raw.githubusercontent.com/CSL-Koga/updatecheckertest/main/simulation.py"
+
     with open("Python/WhenIsTheEnd/version.txt", "r+") as file:
         lines = file.readline()
-        print(lines)
+        file.close()
+    
+    online_version = requests.get(url_of_version_file)
 
+    if lines != "":
+        if lines == str(online_version.content):
+            program()
+        else:
+            print("Es ist eine neuere Version verfügbar, jetzt upgraden? J/N")
+            decision = str(input())
+            if decision == "J":
+                response = requests.get(url_of_code)
+                soup = BeautifulSoup(response.text, 'html.parser')
+                text = soup.get_text()
+
+                response_version = requests.get(url_of_version_file)
+                #update_version_file(response_version.content)
+
+                with open("Python/WhenIsTheEnd/average.txt", "w") as file:
+                    file.write(text)
+                    file.close()
+            else:
+                program()
+    else:
+        response = requests.get(url_of_version_file)
+        update_version_file(response.content)
+        print("Versionsdaten aktualisiert.")
 
 updateCheck()
-program()
