@@ -1,0 +1,10 @@
+Durchschnitt bei 1000000 Simulationen ist: 2894
+Durchschnitt bei 1000000 Simulationen ist: 2893
+Durchschnitt bei 10000 Simulationen ist: 2896
+Durchschnitt bei 10000 Simulationen ist: 2884
+Durchschnitt bei 10000 Simulationen ist: 2891
+Durchschnitt bei 10000 Simulationen ist: 2905
+Durchschnitt bei 10000 Simulationen ist: 2901
+Durchschnitt bei 10000 Simulationen ist: 2895
+Durchschnitt bei 10000 Simulationen ist: 2885
+Durchschnitt bei 10000 Simulationen ist: 2872
