@@ -75,7 +75,7 @@ def updateCheck():
         if lines == str(online_version.content):
             program()
         else:
-            print("Es ist eine neuere Version verfügbar, jetzt upgraden? J/N")
+            print("Es ist eine neuere Version verfuegbar, jetzt upgraden? J/N")
             decision = str(input())
             if decision == "J":
                 response = requests.get(url_of_code)
