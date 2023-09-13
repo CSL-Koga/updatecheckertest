@@ -83,7 +83,7 @@ def updateCheck():
                 text = soup.get_text()
 
                 response_version = requests.get(url_of_version_file)
-                #update_version_file(response_version.content)
+                update_version_file(response_version.content)
 
                 with open("Python/WhenIsTheEnd/average.txt", "w") as file:
                     file.write(text)
