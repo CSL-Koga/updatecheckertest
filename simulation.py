@@ -178,6 +178,8 @@ def updateCheck():
 
                     file.close()
 
+                program()
+
             else:
 
                 program()
